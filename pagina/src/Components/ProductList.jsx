@@ -1,7 +1,13 @@
 import React from 'react';
 import { data } from '../data';  
 
-export const ProductList = () => {
+export const ProductList = ({ allProducts, setAllProducts }) => {
+    const onAddProducts = () => {
+        console.log('Add')
+    };
+
+
+
     return (
         <div className='container-items'>
             {data.map(product => (
@@ -12,7 +18,9 @@ export const ProductList = () => {
                     <div className='info-product'>
                         <h2>{product.nameProduct}</h2>
                         <p className='price'>${product.price}</p>
-                        <button>Añadir a favoritos</button>
+                        <button onClick={() => onAddProducts ()}>
+                            Añadir a favoritos
+                        </button>
                     </div>
                 </div>
             ))}

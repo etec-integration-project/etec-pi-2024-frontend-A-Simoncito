@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export const Header = () => {
+export const Header = ({allProducts, setAllProducts}) => {
+
+    const [active, setActive] = useState (false)
+
     return (
         <header>
             <h1>Perrédex</h1>
 
             <div className="container-icon">
-                <div className="container-cart-icon">
+                <div 
+                    className="container-cart-icon"
+                     onClick={() => setActive(!active)}
+                >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -26,8 +32,11 @@ export const Header = () => {
                     </div>
                 </div>
 
-                <div className="container-cart-products hidden-cart">
-                    <div className="row-product hidden">
+                <div className={`container-cart-products ${active ? '' : 'hidden-cart'}`}>
+                    {
+                        allProducts.length ? (
+                            <>
+                             <div className="row-product hidden">
                         <div className="cart-product">
                             <div className="info-cart-product">
                                 <span className="cantidad-producto-carrito">1</span>
@@ -54,8 +63,12 @@ export const Header = () => {
                     <div className="cart-total hidden">
                         <h3>Total:</h3>
                         <span className="total-pagar">$200</span>
-                    </div>
-                    <p className="cart-empty">El carrito está vacío</p>
+                    </div></>
+                        ) : (
+                            <p className="cart-empty">No tienes favoritos</p>
+                        )
+                    }
+                    
                 </div>
             </div>
         </header>
