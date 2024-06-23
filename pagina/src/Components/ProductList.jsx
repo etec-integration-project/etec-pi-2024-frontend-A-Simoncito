@@ -1,12 +1,23 @@
-import React from 'react';
-import { data } from '../data';  
+import React, { useState } from 'react';
+import { data } from '../data';
 
 export const ProductList = ({ allProducts, setAllProducts }) => {
-    const onAddProducts = () => {
-        console.log('Add')
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const openModal = (product) => {
+        setSelectedProduct(product);
+        setModalOpen(true);
     };
 
+    const closeModal = () => {
+        setSelectedProduct(null);
+        setModalOpen(false);
+    };
 
+    const onAddProducts = () => {
+        console.log('Add');
+    };
 
     return (
         <div className='container-items'>
@@ -17,13 +28,28 @@ export const ProductList = ({ allProducts, setAllProducts }) => {
                     </figure>
                     <div className='info-product'>
                         <h2>{product.nameProduct}</h2>
-                        <p className='price'>${product.price}</p>
-                        <button onClick={() => onAddProducts ()}>
+                        <button className='btn-info' onClick={() => openModal(product)}>
+                            Info
+                        </button>
+                        <button onClick={() => onAddProducts()}>
                             Añadir a favoritos
                         </button>
                     </div>
                 </div>
             ))}
+
+            {/* Modal */}
+            {modalOpen && selectedProduct && (
+                <div className="modal">
+                    <div className="modal-content">
+                        <span className="close" onClick={closeModal}>&times;</span>
+                        <h2>{selectedProduct.nameProduct}</h2>
+                        <img src={selectedProduct.urlImage} alt={selectedProduct.nameProduct} />
+                        {/* Más detalles del perro */}
+                        <p>{selectedProduct.description}</p>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

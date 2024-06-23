@@ -1,119 +1,116 @@
-* Globales */
+/* Estilos Globales */
+*,
 *::after,
-*::before,
-*{
+*::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     margin: 0 auto;
     max-width: 1200px;
-    font-family: 'Lato';
-    color: #333;
+    font-family: 'Lato', sans-serif;
+    color: #000000;
+    background-color: #f0f0f0;
+    border-top: 5px solid #ccc; /* Línea gris que separa header del body */
 }
 
-.icon-cart{
+.icon-cart {
     width: 40px;
     height: 40px;
     stroke: #000;
 }
 
-.icon-cart:hover{
+.icon-cart:hover {
     cursor: pointer;
 }
 
-img{
+img {
     max-width: 100%;
 }
 
 /* Header */
-header{
+header {
     display: flex;
     justify-content: space-between;
     padding: 30px 0 40px 0;
+    border-bottom: 1px solid #ccc; /* Línea gris que separa header del body */
 }
 
-.container-icon{
+.container-icon {
     position: relative;
 }
 
-.count-products{
+.count-products {
     position: absolute;
     top: 55%;
     right: 0;
-
     background-color: #000;
     color: #fff;
     width: 25px;
     height: 25px;
-
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
 }
 
-#contador-productos{
+#contador-productos {
     font-size: 12px;
 }
 
-.container-cart-products{
+.container-cart-products {
     position: absolute;
     top: 50px;
     right: 0;
-
     background-color: #fff;
     width: 400px;
     z-index: 1;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    
 }
 
-.cart-product{
+.cart-product {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 30px;
-
-    border-bottom: 1px solid rgba(0, 0, 0, 0.20);
-
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.info-cart-product{
+.info-cart-product {
     display: flex;
     justify-content: space-between;
     flex: 0.8;
 }
 
-.titulo-producto-carrito{
+.titulo-producto-carrito {
     font-size: 20px;
 }
 
-.precio-producto-carrito{
+.precio-producto-carrito {
     font-weight: 700;
     font-size: 20px;
     margin-left: 10px;
 }
 
-.cantidad-producto-carrito{
+.cantidad-producto-carrito {
     font-weight: 400;
     font-size: 20px;
 }
 
-.icon-close{
+.icon-close {
     width: 25px;
     height: 25px;
 }
 
-.icon-close:hover{
+.icon-close:hover {
     stroke: red;
     cursor: pointer;
 }
 
-.cart-total{
+.cart-total {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -121,82 +118,134 @@ header{
     gap: 20px;
 }
 
-.cart-total h3{
+.cart-total h3 {
     font-size: 20px;
     font-weight: 700;
 }
 
-.total-pagar{
+.total-pagar {
     font-size: 20px;
     font-weight: 900;
 }
 
-.hidden-cart{
+.hidden-cart {
     display: none;
 }
 
-
-
-
 /* Main */
-.container-items{
+.container-items {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    padding: 20px;
 }
 
-.item{
+.item {
     border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.item:hover{
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
-}
-
-.item img{
+.item img {
     width: 100%;
     height: 300px;
     object-fit: cover;
     border-radius: 10px 10px 0 0;
-    transition: all .5s;
+    transition: transform 0.3s ease;
 }
 
-.item figure{
-    overflow: hidden;
+.item:hover img {
+    transform: scale(1.1);
 }
 
-.item:hover img{
-    transform: scale(1.2);
-}
-
-.info-product{
-    padding: 15px 30px;
-    line-height: 2;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.price{
-    font-size: 18px;
-    font-weight: 900;
-}
-
-.info-product button{
-    border: none;
-    background: none;
-    background-color: #000;
-    color: #fff;
-    padding: 15px 10px;
-    cursor: pointer;
-}
-
-.cart-empty{
-    padding: 20px;
+.info-product {
+    padding: 15px;
     text-align: center;
 }
 
+.btn-info,
+button {
+    width: calc(100% - 20px); /* Reducir el ancho en 20px para ajuste */
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 12px 24px; /* Aumentar el padding para hacer los botones un poco más grandes */
+    margin-bottom: 8px; /* Reducir el margen inferior para una separación mínima entre botones */
+}
 
-.hidden{
-    display: none;
+.btn-info:hover,
+button:hover {
+    background-color: #555;
+}
+
+/* Estilos para el modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* Z-index alto para asegurar que esté por encima de todo */
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%; /* Tamaño máximo del modal */
+    max-height: 80%;
+    overflow: auto; /* Habilitar el scrolling si el contenido es largo */
+    position: relative;
+    text-align: center; /* Centrar el contenido */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content img {
+    width: auto; /* Ancho automático para mostrar la imagen completa */
+    max-height: 80vh; /* Altura máxima relativa al tamaño de la pantalla */
+    object-fit: contain; /* Ajustar la imagen dentro del contenedor */
+    border-radius: 10px; /* Redondear las esquinas de la imagen */
+    margin-bottom: 20px; /* Espacio inferior entre la imagen y el texto */
+}
+
+.modal-content h3 {
+    font-size: 48px; /* Tamaño de fuente aumentado para el título */
+    font-weight: 900; /* Grosor de la fuente (más grueso) */
+    color: #000; /* Color negro */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    margin-bottom: 10px; /* Espacio inferior */
+}
+
+.modal-content p {
+    font-size: 24px; /* Tamaño de fuente aumentado para la descripción */
+    line-height: 1.6; /* Espaciado entre líneas */
+    color: #333; /* Color de texto gris oscuro */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Ajustes específicos para el botón y el nombre del perro */
+.btn-info {
+    font-size: 16px; /* Ajustar tamaño de fuente */
+}
+
+.info-product h3 {
+    color: #000;
+    font-weight: bold;
 }
