@@ -1,10 +1,13 @@
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 Sprint del dia 28 
+
 Clonarse el repo "git clone [URL DEL REPO]
-Todo un front que se levanta con:
- 1) cd pagina
- 2) npm run dev
+
+ Todo un front que se levanta con:
+  1) cd pagina
+  2) npm i
+  3) npm run dev
 
 Luego para el sprint siguiente se dockerizara y se podra levantar con docker como el backend
 
