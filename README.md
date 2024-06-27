@@ -7,8 +7,11 @@ Sprint del dia 28
 Todo un front que se levanta con:
 
   a) cd pagina
+
   b) npm i
+
   c) npm run dev
+  
   d) acceder e la direccion "http://127.0.0.1:3000/"
 
 
