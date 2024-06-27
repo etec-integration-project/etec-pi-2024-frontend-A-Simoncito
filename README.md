@@ -1,0 +1,16 @@
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+Sprint del dia 28 
+
+1) Clonarse el repo "git clone [URL DEL REPO]
+2) Verificar que este en la ruta del repo "CD [RUTA DEL REPO]"
+Todo un front que se levanta con:
+
+  a) cd pagina
+  b) npm i
+  c) npm run dev
+  d) acceder e la direccion "http://127.0.0.1:3000/"
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
