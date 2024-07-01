@@ -12,7 +12,7 @@ Todo un front que se levanta con:
 
   c) npm run dev
   
-  d) acceder e la direccion "http://127.0.0.1:3000/"
+  d) acceder e la direccion "http://127.0.0.1:3001/"
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////
