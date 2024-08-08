@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Header } from './Components/Header'
 import { ProductList } from './Components/ProductList'
+import { Footer } from './Components/footer';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
       setCountProducts={setCountProducts}
       
       />
+      <Footer />
     </>
   );
 }
