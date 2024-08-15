@@ -9,7 +9,9 @@ Como levantarlo:
 Todo un front que se levanta con:
 
   a) cd pagina
+
   b) Poner "docker compose up --build"
+  
   b) acceder a la direccion "http://localhost:3001/"
 
 accediendo a esa direccion podremos ver la pagina y veremos que gracias a la conexion con el backend
