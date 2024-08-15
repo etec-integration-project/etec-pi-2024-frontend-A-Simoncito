@@ -9,12 +9,8 @@ Como levantarlo:
 Todo un front que se levanta con:
 
   a) cd pagina
-
-  b) npm i
-
-  c) npm run dev
-  
-  d) acceder e la direccion "http://127.0.0.1:3001/"
+  b) Poner "docker compose up --build"
+  b) acceder a la direccion "http://localhost:3001/"
 
 accediendo a esa direccion podremos ver la pagina y veremos que gracias a la conexion con el backend
 los productos (los animales)se extraen de una tabla de la base de datos 
