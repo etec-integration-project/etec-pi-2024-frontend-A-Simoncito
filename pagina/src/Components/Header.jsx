@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+// src/Components/Header.jsx
+
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const Header = ({ allProducts, setAllProducts }) => {
-    const [active, setActive] = useState(false);
+export const Header = ({ allProducts, favorites, removeFromFavorites }) => {
+    const [active, setActive] = React.useState(false);
 
     return (
         <header>
-            <h1>Perrédex</h1>
+            <Link to="/" className="header-title">
+                <h1>Perrédex</h1>
+            </Link>
 
             <div className="container-icon">
                 <div
@@ -15,28 +19,22 @@ export const Header = ({ allProducts, setAllProducts }) => {
                 >
                     <span className="text-favoritos">Favoritos</span>
                     <div className="count-products">
-                        <span id="contador-productos">0</span>
+                        <span id="contador-productos">{favorites.length}</span>
                     </div>
                 </div>
 
                 <div className={`container-cart-products ${active ? '' : 'hidden-cart'}`}>
-                    {allProducts.length ? (
-                        <>
-                            <div className="row-product hidden">
+                    {favorites.length ? (
+                        favorites.map(product => (
+                            <div key={product.id} className="row-product">
                                 <div className="cart-product">
                                     <div className="info-cart-product">
-                                        <span className="cantidad-producto-carrito">1</span>
-                                        <p className="titulo-producto-carrito">Zapatos Nike</p>
-                                        <span className="precio-producto-carrito">$80</span>
+                                        <p className="titulo-producto-carrito">{product.nameProduct}</p>
+                                        <span className="remove-from-favorites" onClick={() => removeFromFavorites(product.id)}>✕</span>
                                     </div>
                                 </div>
                             </div>
-
-                            <div className="cart-total hidden">
-                                <h3>Total:</h3>
-                                <span className="total-pagar">$200</span>
-                            </div>
-                        </>
+                        ))
                     ) : (
                         <p className="cart-empty">No tienes favoritos</p>
                     )}

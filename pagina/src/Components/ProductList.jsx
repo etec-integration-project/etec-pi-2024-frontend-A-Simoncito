@@ -1,13 +1,15 @@
+// src/Components/ProductList.jsx
+
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
-export const ProductList = ({ allProducts, setAllProducts }) => {
+export const ProductList = ({ allProducts, addToFavorites }) => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [modalOpen, setModalOpen] = useState(false);
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        const fetchdata = async () => {
+        const fetchData = async () => {
             try {
                 const respuesta = await axios.get("http://localhost:3000/users/productos");
                 setData(respuesta.data);
@@ -15,7 +17,7 @@ export const ProductList = ({ allProducts, setAllProducts }) => {
                 console.log("Error");
             }
         };
-        fetchdata();
+        fetchData();
     }, []);
 
     const openModal = (product) => {
@@ -26,10 +28,6 @@ export const ProductList = ({ allProducts, setAllProducts }) => {
     const closeModal = () => {
         setSelectedProduct(null);
         setModalOpen(false);
-    };
-
-    const onAddProducts = () => {
-        console.log('Add');
     };
 
     return (
@@ -44,7 +42,7 @@ export const ProductList = ({ allProducts, setAllProducts }) => {
                         <button className='btn-info' onClick={() => openModal(product)}>
                             Info
                         </button>
-                        <button className='btn-info' onClick={() => onAddProducts()}>
+                        <button className='btn-info' onClick={() => addToFavorites(product)}>
                             Añadir a favoritos
                         </button>
                     </div>
@@ -58,7 +56,6 @@ export const ProductList = ({ allProducts, setAllProducts }) => {
                         <span className="close" onClick={closeModal}>&times;</span>
                         <h2>{selectedProduct.nameProduct}</h2>
                         <img src={selectedProduct.urlImage} alt={selectedProduct.nameProduct} />
-                        {/* Más detalles del perro */}
                         <p>{selectedProduct.description}</p>
                     </div>
                 </div>

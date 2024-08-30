@@ -19,27 +19,31 @@ body {
 /* Header */
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end; /* Alinea todos los elementos del header a la derecha */
     align-items: center;
     padding: 30px 0 40px 0;
     border-bottom: 1px solid #ccc;
-    gap: 40px;
 }
 
 /* Estilo para el título de Perrédex */
+.header-title {
+    text-decoration: none;
+    color: inherit;
+    margin-right: auto; /* Empuja el contenido hacia la derecha */
+}
+
 header h1 {
     font-size: 36px;
     font-weight: bold;
     margin: 0;
-    flex: 1;
-    text-align: left;
 }
 
 /* Contenedor del ícono de favoritos */
 .container-icon {
-    position: relative;
     display: flex;
     align-items: center;
+    position: relative; /* Asegura que el mensaje de "no tienes favoritos" aparezca justo debajo del ícono */
+    margin-right: 20px; /* Espacio entre el ícono de favoritos y los botones de autenticación */
 }
 
 /* Texto de Favoritos */
@@ -78,6 +82,7 @@ header h1 {
     cursor: pointer;
     text-decoration: underline;
     white-space: nowrap; /* Evita el salto de línea */
+    margin-left: 20px; /* Espacio entre los botones */
 }
 
 .btn-login:hover {
@@ -379,4 +384,80 @@ button:hover {
 
 .account-message a:hover {
     text-decoration: underline;
+}
+
+/* Estilo para el contenedor de favoritos en el header */
+.container-cart-products {
+    background-color: #fff;
+    width: 400px; /* Puedes ajustar el tamaño según sea necesario */
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 50px;
+    right: 0;
+    z-index: 1;
+    padding: 10px;
+    max-height: 400px; /* Para asegurar que la lista no ocupe demasiado espacio */
+    overflow-y: auto; /* Hacer scroll si hay demasiados favoritos */
+}
+
+/* Estilo para el contenedor de favoritos en el header */
+.container-cart-products {
+    background-color: #fff;
+    width: 400px; /* Puedes ajustar el tamaño según sea necesario */
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 50px;
+    right: 0;
+    z-index: 1;
+    padding: 10px;
+    max-height: 400px; /* Para asegurar que la lista no ocupe demasiado espacio */
+    overflow-y: auto; /* Hacer scroll si hay demasiados favoritos */
+}
+
+/* Estilo para cada elemento de la lista de favoritos */
+.row-product {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #000; /* Línea negra delgada entre elementos */
+    position: relative; /* Necesario para posicionar la cruz */
+}
+
+.row-product:last-child {
+    border-bottom: none; /* Quitar la línea en el último elemento */
+}
+
+.cart-product {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between; /* Espacia el contenido entre el nombre y la cruz */
+}
+
+.info-cart-product {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    flex: 1; /* Permite que el texto ocupe el espacio disponible */
+}
+
+.remove-from-favorites {
+    cursor: pointer;
+    font-size: 18px;
+    color: #ff0000; /* Color rojo para la cruz */
+    margin-left: 10px; /* Espacio entre el nombre y la cruz */
+}
+
+.remove-from-favorites:hover {
+    color: #cc0000; /* Color rojo más oscuro al pasar el mouse */
+}
+
+.cart-empty {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
 }
