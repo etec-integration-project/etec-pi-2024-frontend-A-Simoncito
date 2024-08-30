@@ -1,28 +1,22 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from "axios";
-
 
 export const ProductList = ({ allProducts, setAllProducts }) => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [modalOpen, setModalOpen] = useState(false);
     const [data, setData] = useState([]);
 
-    useEffect( () =>{
-
+    useEffect(() => {
         const fetchdata = async () => {
             try {
                 const respuesta = await axios.get("http://localhost:3000/users/productos");
-                setData(respuesta.data)
-                
+                setData(respuesta.data);
             } catch (error) {
-                console.log("Error")
-                
+                console.log("Error");
             }
-
-        }
+        };
         fetchdata();
-    }, [])
+    }, []);
 
     const openModal = (product) => {
         setSelectedProduct(product);
@@ -50,7 +44,7 @@ export const ProductList = ({ allProducts, setAllProducts }) => {
                         <button className='btn-info' onClick={() => openModal(product)}>
                             Info
                         </button>
-                        <button onClick={() => onAddProducts()}>
+                        <button className='btn-info' onClick={() => onAddProducts()}>
                             Añadir a favoritos
                         </button>
                     </div>

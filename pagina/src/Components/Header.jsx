@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export const Header = ({ allProducts, setAllProducts }) => {
     const [active, setActive] = useState(false);
@@ -43,7 +44,7 @@ export const Header = ({ allProducts, setAllProducts }) => {
             </div>
 
             <div>
-                <button className="btn-login">Iniciar Sesión | Registrarse</button>
+                <Link to="/register" className="btn-login">Iniciar Sesión | Registrarse</Link>
             </div>
         </header>
     );
