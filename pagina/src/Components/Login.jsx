@@ -8,7 +8,7 @@ export default function Login() {
   const iniciarSesion = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/login", { username: name, password });
+      const response = await axios.post("http://localhost:3000/users/login", { name, password });
       alert("Inicio de sesión exitoso");
       // Aquí podrías redirigir al usuario a otra página, por ejemplo, a la página principal.
       // window.location.href = "/";
