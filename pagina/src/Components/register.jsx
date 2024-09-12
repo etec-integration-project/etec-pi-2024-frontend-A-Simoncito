@@ -12,8 +12,8 @@ export default function Register() {
     e.preventDefault();
     if (password === repeatPassword) {
       try {
-        await axios.post("http://localhost:3000/users/registrar", { email, password, name });
-        alert("Cuenta creada exitosamente");
+        const response = await axios.post("http://localhost:3000/users/registrar", { name, password });
+        alert(response.data.mensaje);
       } catch (error) {
         alert("No se pudo crear la cuenta");
       }
