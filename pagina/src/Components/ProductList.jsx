@@ -11,7 +11,7 @@ export const ProductList = ({ allProducts, addToFavorites }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const respuesta = await axios.get("http://localhost:3000/users/productos");
+                const respuesta = await axios.get("/app/users/productos");
                 setData(respuesta.data);
             } catch (error) {
                 console.log("Error");
