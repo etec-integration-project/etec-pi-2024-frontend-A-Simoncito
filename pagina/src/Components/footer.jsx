@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 
 export const Footer = () => {
   const [rating, setRating] = useState(0);
@@ -67,7 +68,7 @@ export const Footer = () => {
           <dialog ref={dialogRef}>
             <form>
                 <h2>Contáctanos</h2>
-                <label for="supportEmail">Email:</label>
+                <label htmlFor="supportEmail">Email:</label>
                 <input
                   type="email"
                   id="supportEmail"
@@ -76,7 +77,7 @@ export const Footer = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   required/>
                 <br/>
-                <label for="content">Contenido:</label>
+                <label htmlFor="content">Contenido:</label>
                 <input
                   type="textarea"
                   id="content"
