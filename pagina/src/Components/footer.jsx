@@ -27,7 +27,7 @@ export const Footer = () => {
       try {
         const respuesta = await axios.post("/app/users/rate", { rating: rating });
         console.log(respuesta);
-        alert(respuesta);
+        alert(respuesta.data.mensaje);
       } catch (error) {
         console.log("Error");
         alert(error);
@@ -50,8 +50,8 @@ export const Footer = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/app/users/soporte", { email, content });
-      alert(response.data);
+      const response = await axios.post("/app/users/soporte", { email: email, content: content });
+      alert(response.data.mensaje);
     } catch (error) {
       alert("No se pudo enviar el mensaje");
     }
