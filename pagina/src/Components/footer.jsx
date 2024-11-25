@@ -73,7 +73,7 @@ export const Footer = () => {
                   id="supportEmail"
                   name="email"
                   value={email}
-                  onChange={() => setEmail(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                   required/>
                 <br/>
                 <label for="content">Contenido:</label>
@@ -82,7 +82,7 @@ export const Footer = () => {
                   id="content"
                   name="content"
                   value={content}
-                  onChange={() => setContent(e.target.value)}
+                  onChange={(e) => setContent(e.target.value)}
                   required/>
                 <br/>
                 <button className="btn-contact" type="submit" onClick={handleSubmit}>Enviar</button>
