@@ -25,7 +25,7 @@ export const Footer = () => {
     const rating = parseInt(prompt('Califica nuestra página del 1 al 5:'));
     if (rating >= 1 && rating <= 5) {
       try {
-        const respuesta = await axios.post("/app/users/calificar", JSON.stringify({ rating: rating }));
+        const respuesta = await axios.post("/app/users/rate", JSON.stringify({ rating: rating }));
         console.log(respuesta);
         alert(respuesta);
       } catch (error) {
