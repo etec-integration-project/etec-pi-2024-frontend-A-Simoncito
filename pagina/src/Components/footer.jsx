@@ -13,7 +13,7 @@ export const Footer = () => {
       try {
         const respuesta = await axios.get("/app/users/ratings");
         console.log(respuesta);
-        setRating(respuesta.data);
+        setRating(respuesta.data.calificacion);
       } catch (error) {
         console.log("Error");
       }
