@@ -1,0 +1,60 @@
+# PASOS:
+# 1) docker compose up -d mysqldb
+# 2) docker compose up -d backend
+# 3) docker compose down backend
+# 4) docker compose up --build
+
+
+version: '3.7'
+
+services:
+
+  mysqldb:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=123321
+      - MYSQL_DATABASE=app
+    restart: always
+    networks:
+      - escudero-app-network
+
+  backend:
+    build:
+      context: https://github.com/etec-integration-project/etec-pi-2024-backend-A-Simoncito.git
+      dockerfile: Dockerfile
+    depends_on:
+      - mysqldb
+    environment:
+      - MYSQLDB_HOST=mysqldb
+      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=123321
+      - MYSQL_DATABASE=app
+      - MYSQLDB_LOCAL_PORT=3307
+      - MYSQLDB_DOCKER_PORT=3306
+      - JWT_SECRET=mysecretkey
+    # entrypoint: ["./wait-for-it.sh", "mysqldb:3306", "--", "npm", "start"]
+    networks:
+      - escudero-app-network
+
+  frontend:
+    build:
+      context:  https://github.com/etec-integration-project/etec-pi-2024-frontend-A-Simoncito.git#main:pagina
+      dockerfile: Dockerfile
+    networks:
+      - escudero-app-network
+
+  nginx:
+    build:
+      context: https://raw.githubusercontent.com/etec-integration-project/etec-pi-2024-backend-A-Simoncito/main/nginx/Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+      - backend
+    # volumes:
+      # - ./nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - escudero-app-network
+
+networks:
+  escudero-app-network:
