@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Header } from './Components/Header';
 import { ProductList } from './Components/ProductList';
 import { Footer } from './Components/footer';
+import AddProduct from './Components/addProduct';
 import Register from './Components/register';
 import Login from './Components/Login'; 
+import Profile from './Components/profile';
 
 function App() {
   const [allProducts, setAllProducts] = useState([]);
@@ -54,6 +56,8 @@ function App() {
         />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} /> {/* Agregar la ruta para el componente Login */}
+        <Route path="/add-product" element={<AddProduct />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       <Footer />
     </Router>

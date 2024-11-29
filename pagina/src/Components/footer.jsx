@@ -61,47 +61,24 @@ export const Footer = () => {
   return (
     <footer>
       <div className="footer-content">
+
         <div className="footer-contact">
           <h2>Contacto</h2>
           <p>Si tienes alguna pregunta sobre las razas de perros, no dudes en contactarnos.</p>
-          <button onClick={openDialog} className="btn-contact">Contáctanos</button>
-          <dialog ref={dialogRef}>
-            <form>
-                <h2>Contáctanos</h2>
-                <label htmlFor="supportEmail">Email:</label>
-                <input
-                  type="email"
-                  id="supportEmail"
-                  name="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required/>
-                <br/>
-                <label htmlFor="content">Contenido:</label>
-                <input
-                  type="textarea"
-                  id="content"
-                  name="content"
-                  value={content}
-                  onChange={(e) => setContent(e.target.value)}
-                  required/>
-                <br/>
-                <button className="btn-contact" type="submit" onClick={handleSubmit}>Enviar</button>
-                <button className="btn-contact" type="button" onClick={closeDialog}>Cancelar</button>
-            </form>
-          </dialog>
+          {/* <button onClick={openDialog} className="btn-contact">Contactanos</button> */}
         </div>
+
         <div className="footer-social">
           <h2>Síguenos en las redes sociales</h2>
           <ul>
             <li><a href="https://www.facebook.com/tuempresa" target="_blank" rel="noopener noreferrer">Facebook</a></li>
             <li><a href="https://www.twitter.com/tuempresa" target="_blank" rel="noopener noreferrer">Twitter</a></li>
             <li><a href="https://www.instagram.com/tuempresa" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-            <li>{rating}⭐ <span><button className='btn-contact' onClick={calificar}>Calificanos</button></span></li>
           </ul>
         </div>
+
       </div>
-      <p>&copy; 2025 Perrédex. Todos los derechos reservados.</p>
+      <p>&copy; 2026 Perrédex. Todos los derechos reservados.</p>
     </footer>
   );
 };

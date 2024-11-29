@@ -473,3 +473,26 @@ dialog {
 dialog > form > input {
     margin-bottom: 10px;
 }
+
+.split {
+    display: flex;
+    gap: 5em;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .split > * {
+    width: 50%;
+} */
+
+main {
+    margin-bottom: 5em;
+}
+
+.user-rating {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2em;
+    padding: 10px;
+}

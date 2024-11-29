@@ -3,10 +3,23 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
+function getCookie(name) {
+    const cookies = document.cookie.split('; ')
+    for (let cookie of cookies) {
+        const [key, value] = cookie.split('=')
+        if (key === name) {
+            return decodeURIComponent(value)
+        }
+    }
+    return null
+}
+
 export const ProductList = ({ allProducts, addToFavorites }) => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [modalOpen, setModalOpen] = useState(false);
     const [data, setData] = useState([]);
+
+    const [cookie, setCookie] = useState(null)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -17,7 +30,10 @@ export const ProductList = ({ allProducts, addToFavorites }) => {
                 console.log("Error");
             }
         };
+        
         fetchData();
+        setCookie(getCookie('escudero-app'))
+        if (cookie) getMyRatings()
     }, []);
 
     const openModal = (product) => {
@@ -29,6 +45,8 @@ export const ProductList = ({ allProducts, addToFavorites }) => {
         setSelectedProduct(null);
         setModalOpen(false);
     };
+
+    
 
     return (
         <div className='container-items'>
@@ -42,9 +60,9 @@ export const ProductList = ({ allProducts, addToFavorites }) => {
                         <button className='btn-info' onClick={() => openModal(product)}>
                             Info
                         </button>
-                        <button className='btn-info' onClick={() => addToFavorites(product)}>
+                        {/* <button className='btn-info' onClick={() => addToFavorites(product)}>
                             Añadir a favoritos
-                        </button>
+                        </button> */}
                     </div>
                 </div>
             ))}
@@ -60,6 +78,8 @@ export const ProductList = ({ allProducts, addToFavorites }) => {
                     </div>
                 </div>
             )}
+
         </div>
+
     );
 };
