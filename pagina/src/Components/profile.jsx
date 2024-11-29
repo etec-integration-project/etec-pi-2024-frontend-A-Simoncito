@@ -127,7 +127,6 @@ export default function Profile() {
         <main>
             <div className="split">
                 <section>
-                    <h1>Tomas Toler pito chico</h1>
                     {(myRating && (
                         
                         <div className="user-rating">
